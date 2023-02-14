@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Card, Col, Button, Row } from "react-bootstrap";
 interface users {
   id: number;
   name: string;
@@ -17,28 +18,37 @@ interface users {
 }
 interface usersProps {
   user: users[];
-  heading: string
+  heading: string;
 }
-export const ApiDataShow: React.FC<usersProps> = ({ user, heading }: usersProps) => {
+export const ApiDataShow: React.FC<usersProps> = ({
+  user,
+  heading,
+}: usersProps) => {
   return (
     <>
-      <h2 style={{ textTransform: "uppercase" }}>
-        ***Users fetched from {heading}***
-      </h2>
       {user.map((item) => {
         return (
-          <>
-            <h3>Name: {item.name}</h3>
-            <h3>Phone: {item.phone}</h3>
-            <h3>username: {item.username}</h3>
-            <h4>email: {item.email}</h4>
-            <h4>
-              website: <a href={item.website}>{item.website}</a>
-            </h4>
-            <h4>City: {item.address.city}</h4>
-            <h4>zipcode: {item.address.zipcode}</h4>
-            <h6>***************************</h6>
-          </>
+          <Col md={4} lg={4} sm={12} xl={3} className="mt-2">
+            <Card>
+              <Card.Img
+                variant="top"
+                src="https://fastly.picsum.photos/id/16/2500/1667.jpg?hmac=uAkZwYc5phCRNFTrV_prJ_0rP0EdwJaZ4ctje2bY7aE"
+              />
+              <Card.Body>
+                <Card.Title>Name</Card.Title>
+                <Card.Text>{item.name}</Card.Text>
+                <Card.Title>Phone</Card.Title>
+                <Card.Text>{item.phone}</Card.Text>
+                <Card.Title>Username</Card.Title>
+                <Card.Text>{item.username}</Card.Text>
+                <Card.Title>Email</Card.Title>
+                <Card.Text>{item.email}</Card.Text>
+                <Card.Link href={item.website}>{item.website}</Card.Link>
+                <br />
+                <Button variant="primary">Read More</Button>
+              </Card.Body>
+            </Card>
+          </Col>
         );
       })}
     </>

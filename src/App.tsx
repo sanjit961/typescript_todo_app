@@ -4,7 +4,8 @@ import "./App.css";
 import Demo from "./component/Demo";
 import ApiDataShow from "./component/ApiDataShow";
 import Todos from "./component/Todos";
-
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row } from "react-bootstrap";
 function App() {
   const [firstName, setFirstName] = useState<string>("sfdsf");
   const [lastName, setLastName] = useState("Lungeli");
@@ -43,13 +44,9 @@ function App() {
     console.log("myTodos => ", myTodos);
   }, [myTodos]);
   return (
-    <div className="App">
-      <h2>***REACT TYPESCRIPT DEMO APP***</h2>
-      <Demo firstName={firstName} lastName={lastName} />
-      <button onClick={() => changeName()}>Change Name</button>
-      <ApiDataShow user={usersData} heading="API"/>
-      <Todos todo={myTodos}/>
-    </div>
+    <Row className="mx-2">
+      <ApiDataShow user={usersData} heading="API" />
+    </Row>
   );
 }
 
