@@ -18,12 +18,8 @@ interface users {
 }
 interface usersProps {
   user: users[];
-  heading: string;
 }
-export const ApiDataShow: React.FC<usersProps> = ({
-  user,
-  heading,
-}: usersProps) => {
+export const Blogs: React.FC<usersProps> = ({ user }: usersProps) => {
   return (
     <>
       <Row className="mx-2">
@@ -56,4 +52,4 @@ export const ApiDataShow: React.FC<usersProps> = ({
     </>
   );
 };
-export default ApiDataShow;
+export default Blogs;
